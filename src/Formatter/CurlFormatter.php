@@ -50,6 +50,9 @@ class CurlFormatter
         $this->command           = 'curl';
         $this->currentLineLength = strlen($this->command);
         $this->options           = [];
+        
+        if(isset($options['commandLineLength']))
+            $this->setCommandLineLength($options['commandLineLength']);
 
         $this->extractArguments($request, $options);
         $this->addOptionsToCommand();
